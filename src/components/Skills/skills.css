@@ -1,0 +1,69 @@
+.text-zone-skills {
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    width: 40%;
+    max-height: 90%;
+}
+
+.text-zone-skills>h1 {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 63px;
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+.text-zone-skills>p {
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 1.8s backwards;
+}
+
+.text-zone-skills>h1:before {
+    content: 'Habilidades técnicas y blandas';
+    font-family: 'La Belle Aurore', cursive;
+    color: #3B9CFF;
+    font-size: 18px;
+    position: absolute;
+    margin-top: -40px;
+    left: -15px;
+    opacity: 0.9;
+}
+
+.tagcloud-wrap {
+    float: right;
+    width: 55%;
+    height: 115%;
+    margin-top: -3%;
+
+    .tagcloud {
+        color: #3B9CFF;
+        font-size: 20px;
+        font-weight: 650;
+        margin: 10% auto;
+    }
+
+    .tagcloud:hover {
+        animation: pulse 2s infinite ease-in-out alternate;
+    }
+
+    .tagcloud--item:hover {
+        color: #ffa963;
+    }
+}
+  
+  @keyframes pulse {
+    from {
+      transform: scale(1.01);
+    }
+  
+    to {
+      transform: scale(0.95);
+    }
+  }

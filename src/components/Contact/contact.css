@@ -1,0 +1,82 @@
+.text-zone-contact {
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    width: 40%;
+    max-height: 90%;
+}
+
+.text-zone-contact>h1 {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 63px;
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+.text-zone-contact>p {
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 1.8s backwards;
+}
+
+.text-zone-contact>h1:before {
+    content: 'Contactemos para nutrir esta experiencia ';
+    font-family: 'La Belle Aurore', cursive;
+    color: #3B9CFF;
+    font-size: 18px;
+    position: absolute;
+    margin-top: -40px;
+    left: -15px;
+    opacity: 0.9;
+}
+
+.text-zone-data{
+    user-select: text;
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+.text-zone-data>label {
+    user-select: none;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.text-zone-data>p {
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+}
+
+.box {
+    position: absolute;
+    left: -1%;
+    bottom: 5%;
+    width: 200px;
+    height: 400px;
+    border: solid 2px;
+    border-color: transparent transparent #3B9CFF transparent;
+    border-radius: 0 0 160px 50%/260px;
+    z-index: -1;
+  }
+
+  .box:before {
+    content: 'Mis redes :)';
+    font-family: 'La Belle Aurore', cursive;
+    color: #3B9CFF;
+    font-size: 18px;
+    position: absolute;
+    bottom: 10%;
+    right: 0%;
+    opacity: 0.9;
+}
