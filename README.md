@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Bienvenido a mi portafolio virtual
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es una interpretación de mi hoja de vida de una manera más interactiva. Revisalo, si quieres o ve directamente a vercel... para navegar por él.
+
+Ten en cuenta que el portafolio está siendo actualizado constantemente, aún hay zonas que están en fase de diseño y construcción.
+
+## Gracias por tomarte el tiempo de revisarlo
+
+Aprecio cualquier feedback que creas que puede ser constructivo.
 
 ## Available Scripts
 
