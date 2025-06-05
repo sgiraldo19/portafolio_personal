@@ -12,7 +12,7 @@ export default function Inicio() {
             <div className="page">
                 <span className="top-tag">Portafolio personal</span>
                 <Outlet />
-                <ul class="circle" >
+                <ul className="cuadros" >
                     <li></li>
                     <li></li>
                     <li></li>

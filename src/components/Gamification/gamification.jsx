@@ -1,4 +1,5 @@
 import React from 'react'
+import Logro from './Achievement/logro'
 
 import Loader from '../Loader/loader'
 
@@ -17,14 +18,16 @@ export default function Gamification() {
                         para enterarte cuando esté disponible el resto de la experiencia.
                     </p>
                     <h2>
-                        Esta página está en proceso de ser gamificada. En esta sección 
-                        podrás ver el avance que realices navegando por el CV Interactivo. 
+                        Esta página está en proceso de ser gamificada. En esta sección
+                        podrás ver el avance que realices navegando por el CV Interactivo.
                     </h2>
                 </div>
                 <div className='loader'>
                     <Loader />
+
                 </div>
-                <div className='box2'></div>
+                <div className='box2'>
+                </div>
             </div>
         </>
     )

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faCss3, faGitAlt,
-    faHtml5, faJsSquare,
-    faReact, faPython, faUnity
+    faGitAlt, faHtml5,
+    faJsSquare, faReact,
+    faPython, faUnity
 } from '@fortawesome/free-brands-svg-icons'
 
 import Loader from 'react-loaders'
@@ -24,14 +24,14 @@ export default function About() {
                         Resido en Guadalajara de Buga, a una hora de Cali.
                     </p>
                     <p>
-                        Estoy especializado en frontend y desarrollo de videojuegos y tengo 
+                        Estoy especializado en frontend y desarrollo de videojuegos y tengo
                         pasión por narrar historias a través de las mecánicas y
-                        crear experiencias significativas para el usuario. 
+                        crear experiencias significativas para el usuario.
                         Soy competente en JavaScript, React, y Unity, con conocimientos en SQL y
                         bases de datos no relacionales.
                     </p>
                     <p>
-                        Además soy hábil en metodologías ágiles e 
+                        Además soy hábil en metodologías ágiles e
                         intento combinar mi sólida formación académica con mi creatividad,
                         con el objetivo de resolver problemas e impulsar transformaciones digitales.
                     </p>
@@ -39,7 +39,7 @@ export default function About() {
                         Me encantan las hamburguesas, los videojuegos y sus competiciones.
                     </p>
                     <p>
-                        Soy alguien simple, que aprecia de las cosas pequeñas y 
+                        Soy alguien simple, que aprecia de las cosas pequeñas y
                         disfruta de cacharrear para lograr sus objetivos.
                     </p>
                 </div>

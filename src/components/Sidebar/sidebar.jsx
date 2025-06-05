@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -8,28 +10,53 @@ import {
 
 import { NavLink } from 'react-router-dom'
 
+import Logro from '../Gamification/Achievement/logro.jsx'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './sidebar.css'
 
 const Sidebar = () => {
+
+    const [game, setGame] = useState()
+    const [home, setHome] = useState()
+    const [about, setAbout] = useState()
+    const [skills, setSkills] = useState()
+    const [contact, setContact] = useState()
+
+    // function PagClicked(props) {
+    //     setPages(props);
+    // }
+
     return (
         <>
             <div className="nav-bar">
                 <nav>
-                    <NavLink activeclassname="active" className="pad-link" to="/gamification">
+                    <NavLink activeclassname="active" className="pad-link" to="/gamification"
+                        onClick={() => setGame("Gaming")}>
                         <FontAwesomeIcon icon={faGamepad} color="#4d4d4e" />
+                        <Logro page={game} />
                     </NavLink>
-                    <NavLink activeclassname="active" className="home-link" to="/">
+                    <NavLink activeclassname="active" className="home-link" to="/"
+                        onClick={() => setHome("Home")}>
                         <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+                        <Logro page={home} />
                     </NavLink>
-                    <NavLink activeclassname="active" className="about-link" to="/about">
+                    <NavLink activeclassname="active" className="about-link" to="/about"
+                        onClick={() => setAbout("About")}>
                         <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+                        <Logro page={about} />
                     </NavLink>
-                    <NavLink activeclassname="active" className="skills-link" to="/skills">
+                    <NavLink activeclassname="active" className="skills-link" to="/skills"
+                        onClick={() => setSkills("Skills")}>
                         <FontAwesomeIcon icon={faScrewdriverWrench} color="#4d4d4e" />
+                        <Logro page={skills} />
                     </NavLink>
-
-                    <NavLink activeclassname="active" className="contact-link" to="/contact">
+                    <NavLink activeclassname="active" className="contact-link" to="/contact"
+                        onClick={() => setContact("Contact")}>
                         <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+                        <Logro page={contact} />
                     </NavLink>
                 </nav>
                 <ul>
@@ -53,6 +80,7 @@ const Sidebar = () => {
                     </li>
                 </ul>
             </div>
+            <ToastContainer />
         </>
     )
 }

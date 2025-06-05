@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { lazy, Suspense } from 'react';
 
 import Background from './components/Inicio/background'
 import Home from './components/Home/home'
@@ -10,19 +9,13 @@ import About from './components/AboutMe/about'
 import Contact from './components/Contact/contact'
 import Skills from './components/Skills/skills'
 import SoundBar from './components/Sound/soundBar'
-
-// const Inicio = lazy(() => import('./components/Inicio/inicio'));
-// const Home = lazy(() => import('./components/Inicio/inicio'));
-// const Gamification = lazy(() => import('./components/Inicio/inicio'));
-// const About = lazy(() => import('./components/Inicio/inicio'));
-// const Contact = lazy(() => import('./components/Inicio/inicio'));
-// const Skills = lazy(() => import('./components/Inicio/inicio'));
+import ChatBot from './components/ChatBot/chat';
 
 function App() {
   return (
     <>
-      {/* <Suspense fallback={<Loader />}> */}
       <SoundBar />
+      <ChatBot/>
       <Routes>
         <Route path="/" element={<Background />}>
           <Route path="/gamification" element={<Gamification />} />
@@ -32,7 +25,6 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
-      {/* </Suspense> */}
     </>
   );
 }
