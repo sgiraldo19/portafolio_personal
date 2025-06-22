@@ -9,6 +9,14 @@
     opacity: 0.9;
 }
 
+.game{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 45%;
+    max-height: 90%;
+}
+
 .text-zone>p {
     color: #ffffff;
     margin-top: 20px;
@@ -23,11 +31,7 @@ h2 {
     font-weight: 400;
     font-size: 11px;
     font-family: sans-serif;
-    letter-spacing: 3px;    
-}
-
-.loader {
-    left: 75%;
+    letter-spacing: 3px;
 }
 
 .box2 {
@@ -39,9 +43,9 @@ h2 {
     border: solid 2px;
     border-color: transparent transparent #3B9CFF transparent;
     border-radius: 0 0 160px 50%/260px;
-  }
+}
 
-  .box2:before {
+.box2:before {
     content: 'Mis redes :)';
     font-family: 'La Belle Aurore', cursive;
     color: #3B9CFF;
@@ -50,4 +54,41 @@ h2 {
     bottom: 10%;
     right: 0%;
     opacity: 0.9;
+}
+
+.reset-btn {
+    margin: 1rem;
+    padding: 8px 12px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: #d62828;
+}
+
+.gamification-container {
+    position: relative;
+}
+
+.logros-wrapper {
+    position: absolute;
+    top: 40%;
+    right: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.logros-wrapper>h2 {
+    position: absolute;
+}
+
+.achievement-grid {
+    display: grid;
+    align-self: start;
+    gap: 0.5rem;
 }

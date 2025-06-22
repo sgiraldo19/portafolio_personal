@@ -12,6 +12,9 @@ import Loader from 'react-loaders'
 import './about.css'
 
 export default function About() {
+
+
+
     return (
         <>
             <div className="container about-page">

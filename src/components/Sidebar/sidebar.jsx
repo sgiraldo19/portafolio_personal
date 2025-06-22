@@ -25,16 +25,12 @@ const Sidebar = () => {
     const [skills, setSkills] = useState()
     const [contact, setContact] = useState()
 
-    // function PagClicked(props) {
-    //     setPages(props);
-    // }
-
     return (
         <>
             <div className="nav-bar">
                 <nav>
                     <NavLink activeclassname="active" className="pad-link" to="/gamification"
-                        onClick={() => setGame("Gaming")}>
+                        onClick={() => setGame("Game")}>
                         <FontAwesomeIcon icon={faGamepad} color="#4d4d4e" />
                         <Logro page={game} />
                     </NavLink>

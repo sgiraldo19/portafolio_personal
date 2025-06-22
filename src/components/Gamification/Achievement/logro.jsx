@@ -28,27 +28,27 @@ export default function Logro(props) {
     const page = props.page;
 
     useEffect(() => {
-        if (logroGame === null) {
+        if (page == "Game" && logroGame === null) {
             localStorage.setItem('LogroGame', JSON.stringify(page))
             return (logro)
         }
 
-        if (logroHome === null) {
+        if (page === "Home" && logroHome === null) {
             localStorage.setItem('LogroHome', JSON.stringify(page))
             return (logro)
         }
 
-        if (logroAbout == null) {
+        if (page === "About" && logroAbout == null) {
             localStorage.setItem('LogroAbout', JSON.stringify(page))
-            return (logro)
+            return (console.log()+logro)
         }
 
-        if (logroSkills == null) {
+        if (page === "Skills" && logroSkills == null) {
             localStorage.setItem('LogroSkills', JSON.stringify(page))
             return (logro)
         }
 
-        if (logroContact == null) {
+        if (logroContact == null && page === "Contact") {
             localStorage.setItem('LogroContact', JSON.stringify(page))
             return (logro)
         }
