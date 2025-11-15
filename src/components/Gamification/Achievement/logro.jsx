@@ -1,67 +1,29 @@
-import React from 'react'
+import React from 'react';
 import { useEffect } from 'react';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Logro(props) {
+import AchievementService from '../../../services/AchievementService';
+import { TOAST_CONFIG } from '../../../constants/achievements';
 
-    const logro = () => toast(
-        '🏆 Logro desbloqueado!', {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
+// REFACTOR: Simplificar lógica usando servicio (S.O.L.I.D - SRP)
+// Extraer operaciones de localStorage a servicio dedicado
+const Achievement = (props) => {
+  const showAchievementToast = () => {
+    toast('🏆 Logro desbloqueado!', TOAST_CONFIG);
+  };
 
-    const logroGame = localStorage.getItem('LogroGame')
-    const logroHome = localStorage.getItem('LogroHome')
-    const logroAbout = localStorage.getItem('LogroAbout')
-    const logroSkills = localStorage.getItem('LogroSkills')
-    const logroContact = localStorage.getItem('LogroContact')
-    const logroMusic = localStorage.getItem('LogroMusic')
+  const page = props.page;
 
-    const page = props.page;
+  useEffect(() => {
+    if (page && AchievementService.unlock(page)) {
+      // Solo mostrar notificación si fue desbloqueado ahora
+      showAchievementToast();
+    }
+  }, [page]);
 
-    useEffect(() => {
-        if (page == "Game" && logroGame === null) {
-            localStorage.setItem('LogroGame', JSON.stringify(page))
-            return (logro)
-        }
+  return <></>;
+};
 
-        if (page === "Home" && logroHome === null) {
-            localStorage.setItem('LogroHome', JSON.stringify(page))
-            return (logro)
-        }
-
-        if (page === "About" && logroAbout == null) {
-            localStorage.setItem('LogroAbout', JSON.stringify(page))
-            return (console.log()+logro)
-        }
-
-        if (page === "Skills" && logroSkills == null) {
-            localStorage.setItem('LogroSkills', JSON.stringify(page))
-            return (logro)
-        }
-
-        if (logroContact == null && page === "Contact") {
-            localStorage.setItem('LogroContact', JSON.stringify(page))
-            return (logro)
-        }
-
-        // if (logroMusic == null) {
-        //         localStorage.setItem('LogroMusic', JSON.stringify(page))
-        //         return (logro)
-        // }
-
-    }, [page])
-
-    return (
-        <></>
-    )
-
-}
+export default Achievement;
