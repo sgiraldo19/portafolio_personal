@@ -1,31 +1,35 @@
-import React, { useState } from "react";
+import React from 'react';
 
-import './chat.css'
+import { useModal } from '../../hooks/useModal';
 
+import './chat.css';
+
+// REFACTOR: Usar hook personalizado para gestionar modal (S.O.L.I.D - SRP)
 const Chatbot = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, toggle } = useModal(false);
 
-    const toggleChatbot = () => {
-        setIsOpen(!isOpen);
-    };
+  return (
+    <>
+      <button
+        className="chatbot-toggle-button"
+        onClick={toggle}
+        aria-label="Toggle chatbot"
+        aria-expanded={isOpen}
+      >
+        🤖
+      </button>
 
-    return (
-        <>
-            <button className="chatbot-toggle-button" onClick={toggleChatbot}>
-                🤖
-            </button>
-
-            {isOpen && (
-                <div className="chatbot-popup">
-                    <iframe
-                        className="chatbot-frame"
-                        src="https://copilotstudio.microsoft.com/environments/Default-6ca34ae1-466f-44bc-a7aa-0ac5a78c61b1/bots/cr3a3_botNavi/webchat?__version__=2"
-                        title="Copilot Chatbot"
-                    ></iframe>
-                </div>
-            )}
-        </>
-    );
+      {isOpen && (
+        <div className="chatbot-popup">
+          <iframe
+            className="chatbot-frame"
+            src="https://copilotstudio.microsoft.com/environments/Default-6ca34ae1-466f-44bc-a7aa-0ac5a78c61b1/bots/cr3a3_botNavi/webchat?__version__=2"
+            title="Copilot Chatbot"
+          />
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Chatbot;

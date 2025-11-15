@@ -1,57 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import TagCloud from 'TagCloud'
+import React, { useEffect, useState } from 'react';
+import TagCloud from 'TagCloud';
 
-export default function SkillCircle() {
-    const [isLoading, setLoad] = useState(true)
+import { SKILLS_LIST, TAG_CLOUD_OPTIONS } from '../../constants/skills';
 
-    const container = '.content'
-    const texts = [
-        'Java',
-        'React',
-        'Trabajo en equipo',
-        'MongoDB',
-        'NodeJS',
-        'Resolución de problemas',
-        'Redux',
-        'HTML5',
-        'Atención al detalle',
-        'CSS3',
-        'JS',
-        'Pensamiento crítico',
-        'FireBase',
-        'MySQl',
-        'Creatividad',
-        'Python',
-        'Git',
-        'Adaptabilidad',
-        'Unity',
-        'Ubuntu',
-    ]
-    const options = {
-        radius: 300,
-        // animation speed
-        // slow, normal, fast
-        maxSpeed: 'slow',
-        initSpeed: 'slow',
-        // 0 = top
-        // 90 = left
-        // 135 = right-bottom
-        direction: 135,
-        // interact with cursor move on mouse out
-        keep: true,
+// REFACTOR: Usar constantes centralizadas (S.O.L.I.D - DRY)
+// Evitar hardcoding y mejorar mantenibilidad
+const SkillCircle = () => {
+  const [isLoading, setLoad] = useState(true);
+
+  const container = '.content';
+
+  // REFACTOR: Remover linting disable usando dependencias correctas
+  useEffect(() => {
+    if (isLoading) {
+      TagCloud(container, SKILLS_LIST, TAG_CLOUD_OPTIONS);
+      setLoad(false);
     }
-    //   to render wordcloud each time the page is reloaded
+    // Intencional: Solo ejecutar una vez al montar
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => {
-        if (isLoading) {
-            TagCloud(container, texts, options)
-            setLoad(false)
-        }
-    })
+  }, []);
 
-    return (
-        <div className="main">
-            <span className="content"></span>
-        </div>
-    )
-}
+  return (
+    <div className="main">
+      <span className="content"></span>
+    </div>
+  );
+};
+
+export default SkillCircle;

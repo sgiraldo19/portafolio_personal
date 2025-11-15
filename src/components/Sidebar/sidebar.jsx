@@ -1,84 +1,95 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
-    faHome, faUser,
-    faEnvelope, faGamepad,
-    faScrewdriverWrench,
-} from '@fortawesome/free-solid-svg-icons'
+  faHome,
+  faUser,
+  faEnvelope,
+  faGamepad,
+  faScrewdriverWrench,
+} from '@fortawesome/free-solid-svg-icons';
 
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
-import Logro from '../Gamification/Achievement/logro.jsx'
+import Logro from '../Gamification/Achievement/logro.jsx';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import './sidebar.css'
+import './sidebar.css';
+import { NAVIGATION_ITEMS, ROUTES } from '../../constants/routes';
+import { SOCIAL_LINKS } from '../../constants/socialLinks';
+
+// Mapeo de iconos para evitar lógica condicional
+const ICON_MAP = {
+  faGamepad,
+  faHome,
+  faUser,
+  faScrewdriverWrench,
+  faEnvelope,
+  faLinkedin,
+  faGithub,
+};
 
 const Sidebar = () => {
+  // REFACTOR: Usar estado único en lugar de múltiples useState (S.O.L.I.D - DRY)
+  const [activePage, setActivePage] = useState(null);
 
-    const [game, setGame] = useState()
-    const [home, setHome] = useState()
-    const [about, setAbout] = useState()
-    const [skills, setSkills] = useState()
-    const [contact, setContact] = useState()
+  return (
+    <>
+      <div className="nav-bar">
+        <nav>
+          {/* REFACTOR: Mapear items de navegación desde constante (S.O.L.I.D - DRY) */}
+          {NAVIGATION_ITEMS.map((item) => {
+            // Mantener clases específicas para posicionamiento/etiquetas CSS
+            const classForItem = `nav-link ${
+              item.key === 'LogroGame'
+                ? 'pad-link'
+                : item.key === 'LogroHome'
+                ? 'home-link'
+                : item.key === 'LogroAbout'
+                ? 'about-link'
+                : item.key === 'LogroSkills'
+                ? 'skills-link'
+                : item.key === 'LogroContact'
+                ? 'contact-link'
+                : ''
+            }`;
 
-    return (
-        <>
-            <div className="nav-bar">
-                <nav>
-                    <NavLink activeclassname="active" className="pad-link" to="/gamification"
-                        onClick={() => setGame("Game")}>
-                        <FontAwesomeIcon icon={faGamepad} color="#4d4d4e" />
-                        <Logro page={game} />
-                    </NavLink>
-                    <NavLink activeclassname="active" className="home-link" to="/"
-                        onClick={() => setHome("Home")}>
-                        <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
-                        <Logro page={home} />
-                    </NavLink>
-                    <NavLink activeclassname="active" className="about-link" to="/about"
-                        onClick={() => setAbout("About")}>
-                        <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-                        <Logro page={about} />
-                    </NavLink>
-                    <NavLink activeclassname="active" className="skills-link" to="/skills"
-                        onClick={() => setSkills("Skills")}>
-                        <FontAwesomeIcon icon={faScrewdriverWrench} color="#4d4d4e" />
-                        <Logro page={skills} />
-                    </NavLink>
-                    <NavLink activeclassname="active" className="contact-link" to="/contact"
-                        onClick={() => setContact("Contact")}>
-                        <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
-                        <Logro page={contact} />
-                    </NavLink>
-                </nav>
-                <ul>
-                    <li>
-                        <a
-                            href="https://www.linkedin.com/in/s-giraldog/"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <FontAwesomeIcon icon={faLinkedin} color="#b9b9b9" />
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://github.com/sgiraldo19"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <FontAwesomeIcon icon={faGithub} color="#b9b9b9" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <ToastContainer />
-        </>
-    )
-}
+            return (
+              <NavLink
+                key={item.key}
+                className={classForItem}
+                to={item.path}
+                onClick={() => setActivePage(item.key)}
+              >
+                <FontAwesomeIcon icon={ICON_MAP[item.icon]} color="#4d4d4e" />
+                <Logro page={activePage === item.key ? item.key : null} />
+              </NavLink>
+            );
+          })}
+        </nav>
 
-export default Sidebar
+        <ul>
+          {/* REFACTOR: Mapear enlaces sociales desde constante (S.O.L.I.D - DRY) */}
+          {SOCIAL_LINKS.map((link) => (
+            <li key={link.name}>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={link.name}
+              >
+                <FontAwesomeIcon icon={ICON_MAP[link.icon]} color="#b9b9b9" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <ToastContainer />
+    </>
+  );
+};
+
+export default Sidebar;
