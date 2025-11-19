@@ -1,4 +1,4 @@
-.game>h1:before {
+.game > h1:before {
     content: 'Sección en desarrollo';
     font-family: 'La Belle Aurore', cursive;
     color: #3B9CFF;
@@ -9,7 +9,7 @@
     opacity: 0.9;
 }
 
-.game{
+.game {
     position: absolute;
     left: 10%;
     top: 20%;
@@ -17,7 +17,7 @@
     max-height: 90%;
 }
 
-.text-zone>p {
+.text-zone > p {
     color: #ffffff;
     margin-top: 20px;
     font-size: 15px;
@@ -57,13 +57,14 @@ h2 {
 }
 
 .reset-btn {
-    margin: 1rem;
+    margin: 0;
     padding: 8px 12px;
     background-color: #e63946;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    width: fit-content;
 }
 
 .reset-btn:hover {
@@ -71,24 +72,29 @@ h2 {
 }
 
 .gamification-container {
-    position: relative;
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    width: 40%;
 }
 
 .logros-wrapper {
-    position: absolute;
-    top: 40%;
-    right: 2rem;
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.logros-wrapper>h2 {
-    position: absolute;
+.logros-wrapper > h2 {
+    color: #3B9CFF;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 18px;
+    margin: 0;
 }
 
 .achievement-grid {
     display: grid;
-    align-self: start;
-    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
 }
